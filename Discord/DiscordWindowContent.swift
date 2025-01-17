@@ -20,8 +20,7 @@ struct DiscordWindowContent: View {
                 // Embed the Discord WebView
                 WebView(channelClickWidth: channelClickWidth,
                         initialURL: initialURL,
-                        customCSS: customCSS,
-                        webViewReference: $webViewReference)
+                        customCSS: customCSS)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onChange(of: fakeNitro) {
                         guard let webView = webViewReference else { return }

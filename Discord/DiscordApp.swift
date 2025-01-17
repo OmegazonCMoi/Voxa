@@ -1,10 +1,3 @@
-//
-//  DiscordApp.swift
-//  Discord
-//
-//  Created by Austin Thomas on 24/11/2024.
-//
-
 import SwiftUI
 import AppKit
 
@@ -57,6 +50,7 @@ class WindowDelegate: NSObject, NSWindowDelegate {
 struct DiscordApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @AppStorage("FakeNitro") var fakeNitro: Bool = false
+    @AppStorage("SilentTyping") var silentTyping: Bool = false
     
     var body: some Scene {
         WindowGroup {
@@ -110,7 +104,11 @@ struct DiscordApp: App {
                 } label: {
                     Text("\(fakeNitro ? "Disable" : "Enable") Fake Nitro")
                 }
-                
+                Button {
+                    silentTyping.toggle()
+                } label: {
+                    Text("\(silentTyping ? "Disable" : "Enable") Silent Typing")
+                }
             }
         }
     }
